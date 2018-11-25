@@ -21,11 +21,11 @@ UPDATE `#__categories` SET `path` = 'ongecategoriseerd', `title` = 'Ongecategori
 UPDATE `#__extensions` SET `params` = '{"administrator":"nl-NL","site":"nl-NL"}' WHERE `name` = 'com_languages';
 
 -- Add your language packs data
--- Note! Remember to add the Manifest files to the right Maifests folder (administrator/manifests/..)
-INSERT INTO `#__extensions` (`extension_id`, `name`, `type`, `element`, `folder`, `client_id`, `enabled`, `access`, `protected`, `manifest_cache`, `params`, `custom_data`, `system_data`, `checked_out`, `checked_out_time`, `ordering`, `state`) VALUES
-(10000, 'Nederlands (NL)', 'language', 'nl-NL', '', 0, 1, 1, 1, '', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-(10001, 'Nederlands (NL)', 'language', 'nl-NL', '', 1, 1, 1, 1, '', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-(10002, 'nl-NL', 'package', 'pkg_nl-NL', '', 0, 1, 1, 1, '{"name":"Dutch (nl-NL) Language Pack","type":"package","creationDate":"DATUM","author":"Dutch Translation Team","copyright":"Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.","authorEmail":"taal@joomlacommunity.eu","authorUrl":"http://joomlacommunity.eu","version":"VERSIE.1","description":"Nederlands taalpakket","group":"","filename":"pkg_nl-NL"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0);
+-- Note! Remember to add the Manifest files to the right Manifests folder (administrator/manifests/..)
+INSERT INTO `#__extensions` (`extension_id`, `package_id`, `name`, `type`, `element`, `folder`, `client_id`, `enabled`, `access`, `protected`, `manifest_cache`, `params`, `custom_data`, `system_data`, `checked_out`, `checked_out_time`, `ordering`, `state`) VALUES
+(803, 805, 'Nederlandsnl-NL', 'language', 'nl-NL', '', 0, 1, 0, 0, '{\"name\":\"Nederlands (nl-NL)\",\"type\":\"language\",\"creationDate\":\"Oktober 2018\",\"author\":\"Dutch Translation Team\",\"copyright\":\"Copyright (C) 2005 - 2018 Dutch Translation Team en Open Source Matters. All rights reserved.\",\"authorEmail\":\"taal@joomlacommunity.nl\",\"authorUrl\":\"https:\\/\\/joomlacommunity.nl\",\"version\":\"3.9.0.1\",\"description\":\"Nederlands taalbestand Joomla! 3.9 (site)\",\"group\":\"\",\"filename\":\"install\"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+(804, 805, 'Nederlandsnl-NL', 'language', 'nl-NL', '', 1, 1, 0, 0, '{\"name\":\"Nederlands (nl-NL)\",\"type\":\"language\",\"creationDate\":\"Oktober 2018\",\"author\":\"Dutch Translation Team\",\"copyright\":\"Copyright (C) 2005 - 2018 Dutch Translation Team en Open Source Matters. All rights reserved.\",\"authorEmail\":\"taal@joomlacommunity.nl\",\"authorUrl\":\"https:\\/\\/joomlacommunity.nl\",\"version\":\"3.9.0.1\",\"description\":\"Nederlands taalbestand Joomla! 3.9 (beheergedeelte)\",\"group\":\"\",\"filename\":\"install\"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+(805, 0, 'Nederlands (nl-NL) taalpakket', 'package', 'pkg_nl-NL', '', 0, 1, 1, 0, '{\"name\":\"Nederlands (nl-NL) taalpakket\",\"type\":\"package\",\"creationDate\":\"Oktober 2018\",\"author\":\"Dutch Translation Team\",\"copyright\":\"Copyright (C) 2005 - 2018 Dutch Translation Team en Open Source Matters. All rights reserved.\",\"authorEmail\":\"taal@joomlacommunity.nl\",\"authorUrl\":\"https:\\/\\/joomlacommunity.nl\",\"version\":\"3.9.0.1\",\"description\":\"Nederlands taalpakket\",\"group\":\"\",\"filename\":\"pkg_nl-NL\"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0);
 
 
 --
@@ -136,8 +136,8 @@ REPLACE INTO `#__finder_terms_common` (`term`, `language`) VALUES
 -- Add your Content Language - OPTIONAL
 -- Really only needed for Multilingual sites, but it does no harm to add it
 -- You can also truncate the table first, and insert your content language with lang_id 1 if prefered
-INSERT INTO `#__languages` (`lang_id`, `lang_code`, `title`, `title_native`, `sef`, `image`, `description`, `metakey`, `metadesc`, `sitename`, `published`, `access`, `ordering`) VALUES
-(2, 'nl-NL', 'Nederlands (NL)', 'Nederlands (NL)', 'nl', 'nl', '', '','', '', 1, 0,0);
+INSERT INTO `#__languages` (`lang_id`, `asset_id`, `lang_code`, `title`, `title_native`, `sef`, `image`, `description`, `metakey`, `metadesc`, `sitename`, `published`, `access`, `ordering`) VALUES
+(2, 60, 'nl-NL', 'Nederlands (nl-NL)', 'Nederlands (Dutch)', 'nl', 'nl_nl', '', '', '', '', 0, 1, 1);
 
 --
 -- Localise data for table `#__menu`
@@ -171,6 +171,9 @@ UPDATE `#__modules` SET `title` = 'Inlogformulier' WHERE `id` = 16;
 UPDATE `#__modules` SET `title` = 'Kruimelpad', `params` = REPLACE(`params`, '"homeText":"Home"', '"homeText":"Home"') WHERE `id` = 17;
 UPDATE `#__modules` SET `title` = 'Meertalige status' WHERE `id` = 79;
 UPDATE `#__modules` SET `title` = 'Joomla versie' WHERE `id` = 86;
+UPDATE `#__modules` SET `title` = 'Voorbeelddata' WHERE `id` = 87;
+UPDATE `#__modules` SET `title` = 'Laatste acties' WHERE `id` = 88;
+
 
 --
 -- Localise data for table `#__update_sites`
