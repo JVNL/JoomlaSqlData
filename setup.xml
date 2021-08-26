@@ -6,7 +6,7 @@
 			type="installation.language"
 			label="INSTL_SELECT_LANGUAGE_TITLE"
 			class="required"
-			default="nl_NL"
+			default="nl-NL"
 		/>
 		<field
 			name="site_name"
