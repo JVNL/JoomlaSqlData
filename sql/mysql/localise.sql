@@ -22,10 +22,15 @@ UPDATE `#__extensions` SET `params` = '{"administrator":"nl-NL","site":"nl-NL"}'
 
 -- Add your language packs data
 -- Note! Remember to add the Manifest files to the right Manifests folder (administrator/manifests/..)
-INSERT INTO `#__extensions` (`extension_id`, `package_id`, `name`, `type`, `element`, `folder`, `client_id`, `enabled`, `access`, `protected`, `manifest_cache`, `params`, `custom_data`, `system_data`, `checked_out`, `checked_out_time`, `ordering`, `state`) VALUES
-(803, 805, 'Nederlandsnl-NL', 'language', 'nl-NL', '', 0, 1, 0, 0, '{\"name\":\"Nederlands (nl-NL)\",\"type\":\"language\",\"creationDate\":\"DATUM\",\"author\":\"Dutch Translation Team\",\"copyright\":\"Copyright (C) 2005 - 2019 Dutch Translation Team en Open Source Matters. All rights reserved.\",\"authorEmail\":\"taal@joomlacommunity.nl\",\"authorUrl\":\"https:\\/\\/joomlacommunity.nl\",\"version\":\"VERSIE.1\",\"description\":\"Nederlands taalbestand Joomla! VERSIE (site)\",\"group\":\"\",\"filename\":\"install\"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-(804, 805, 'Nederlandsnl-NL', 'language', 'nl-NL', '', 1, 1, 0, 0, '{\"name\":\"Nederlands (nl-NL)\",\"type\":\"language\",\"creationDate\":\"DATUM\",\"author\":\"Dutch Translation Team\",\"copyright\":\"Copyright (C) 2005 - 2019 Dutch Translation Team en Open Source Matters. All rights reserved.\",\"authorEmail\":\"taal@joomlacommunity.nl\",\"authorUrl\":\"https:\\/\\/joomlacommunity.nl\",\"version\":\"VERSIE.1\",\"description\":\"Nederlands taalbestand Joomla! VERSIE (beheergedeelte)\",\"group\":\"\",\"filename\":\"install\"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-(805, 0, 'Nederlands (nl-NL) taalpakket', 'package', 'pkg_nl-NL', '', 0, 1, 1, 0, '{\"name\":\"Nederlands (nl-NL) taalpakket\",\"type\":\"package\",\"creationDate\":\"DATUM\",\"author\":\"Dutch Translation Team\",\"copyright\":\"Copyright (C) 2005 - 2019 Dutch Translation Team en Open Source Matters. All rights reserved.\",\"authorEmail\":\"taal@joomlacommunity.nl\",\"authorUrl\":\"https:\\/\\/joomlacommunity.nl\",\"version\":\"VERSIE.1\",\"description\":\"Nederlands taalpakket\",\"group\":\"\",\"filename\":\"pkg_nl-NL\"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0);
+INSERT INTO `#__extensions` (`package_id`, `name`, `type`, `element`, `folder`, `client_id`, `enabled`, `access`, `protected`, `locked`, `manifest_cache`, `params`, `custom_data`, `ordering`, `state`) VALUES
+(0, 'Nederlands (nl-NL) Taalbestand', 'package', 'pkg_nl-NL', '', 0, 1, 1, 1, 1, '', '', '', 0, 0);
+
+INSERT INTO `#__extensions` (`package_id`, `name`, `type`, `element`, `folder`, `client_id`, `enabled`, `access`, `protected`, `locked`, `manifest_cache`, `params`, `custom_data`, `ordering`, `state`)
+SELECT `extension_id`, 'Nederlands (nl-NL)', 'language', 'nl-NL', '', 0, 1, 1, 1, 1, '', '', '', 0, 0 FROM `#__extensions` WHERE `name` = 'Nederlands (nl-NL) Taalbestand';
+INSERT INTO `#__extensions` (`package_id`, `name`, `type`, `element`, `folder`, `client_id`, `enabled`, `access`, `protected`, `locked`, `manifest_cache`, `params`, `custom_data`, `ordering`, `state`)
+SELECT `extension_id`, 'Nederlands (nl-NL)', 'language', 'nl-NL', '', 1, 1, 1, 1, 1, '', '', '', 0, 0 FROM `#__extensions` WHERE `name` = 'Nederlands (nl-NL) Taalbestand';
+INSERT INTO `#__extensions` (`package_id`, `name`, `type`, `element`, `folder`, `client_id`, `enabled`, `access`, `protected`, `locked`, `manifest_cache`, `params`, `custom_data`, `ordering`, `state`)
+SELECT `extension_id`, 'Nederlands (nl-NL)', 'language', 'nl-NL', '', 3, 1, 1, 1, 1, '', '', '', 0, 0 FROM `#__extensions` WHERE `name` = 'Nederlands (nl-NL) Taalbestand';
 
 
 --
@@ -202,3 +207,12 @@ UPDATE `#__viewlevels` SET `title` = 'Geregistreerd' WHERE `id` = 2;
 UPDATE `#__viewlevels` SET `title` = 'Speciaal' WHERE `id` = 3;
 UPDATE `#__viewlevels` SET `title` = 'Gast' WHERE `id` = 5;
 UPDATE `#__viewlevels` SET `title` = 'Super gebruikers' WHERE `id` = 6;
+# Localise data for Full Dutch Joomla! Pack
+# Please ensure that the used ID in queries are matching those in joomla.sql
+#
+# If merged with joomla.sql/joomla_backward.sql or sample_data.sql,
+# put at the bottom of joomla.sql/joomla_backwards.sql, and on top of the sample_data.sql
+#
+# -------------------------------------------------------
+
+-
